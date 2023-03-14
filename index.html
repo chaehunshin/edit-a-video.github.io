@@ -1,0 +1,458 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0045)http://6.869.csail.mit.edu/fa19/schedule.html -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link href="https://fonts.cdnfonts.com/css/chalkduster" rel="stylesheet">
+<style>
+    @import url('https://fonts.cdnfonts.com/css/chalkduster');
+</style>
+<script src="./sm/assets/teaser-data.js"></script>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Edit-A-Video Single Video Editing with Object-Aware Consistency</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="description"
+        content="Project page for &#39;Edit-A-Video Single Video Editing with Object-Aware Consistency.&#39;">
+    <!-- <link rel="icon" href="./pics/wis_logo.jpg"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Edit-A-Video Single Video Editing with Object-Aware Consistency</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="description"
+        content="Project page for &#39;Edit-A-Video Single Video Editing with Object-Aware Consistency.&#39;">
+    <!-- <link rel="icon" href="./sm/assets/snu_logo.jpeg"> -->
+</head>
+
+<body>
+    <p class="title">Edit-A-Video Single Video Editing with Object-Aware Consistency</p>
+    <!-- <div style="text-align: center; font-size: 20pt; margin-bottom: 15px">
+            <span>CVPR 2023</span> -->
+    </div>
+    <p class="author">
+        <!-- <span class="author"><a target="_blank">
+                Anonymous</a>&nbsp;<sup>&nbsp;</sup></span> -->
+        <span class="author">Chaehun Shin&nbsp;<sup>*</sup></span>
+        <span class="author">Heeseung Kim&nbsp;<sup>*</sup></span>
+        <span class="author">Che Hyun Lee&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author">Sang-gil Lee&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author">Sungroh Yoon&nbsp;<sup>&nbsp;</sup></span>
+    </p>
+    <table border="0" align="center" class="affiliations" width="1200px">
+        <tbody align="center">
+            <tr>
+                <td>&nbsp;<sup>&nbsp;</sup>&nbsp;
+                        Data Science and AI Lab, ECE, Seoul National University</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <table width="999" border="0" align="center" class="menu" style="margin-bottom: 8px;">
+        <tbody>
+            <tr>
+                <td align="center">| <a href="#paper">Paper</a> | <a href="./sm/index.html" target="_blank">Supplementary Material</a> | <a href="https://github.com/MichalGeyer/plug-and-play">Code</a> | <a href="https://huggingface.co/spaces/hysts/PnP-diffusion-features"> HuggingFace Demo </a> | <a href="https://replicate.com/daanelson/plug_and_play_image_translation"> Replicate Demo </a> | </td>
+            </tr>
+        </tbody>
+    </table> -->
+    <div class="container">
+        <table width="1000" border="0" align="center">
+            <tbody>
+                <tr>
+                    <div id="imageCarousel" class="carousel slide teaser-carousel" data-ride="carousel" data-interval="5000">
+                        <div class="carousel-inner">
+
+                            <!-- man guitar -->
+                            <div class="carousel-item active">
+                                <div>
+                                    <img class="teaser-img" src="./sm/assets/our_results/a man is playing a guitar/data.gif" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="man-guitar-result" class="teaser-img" src="./sm/assets/our_results/a man is playing a guitar/a bear is playing a guitar.gif" />
+                                </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('man-guitar-bear', ['man-guitar-monkey', 'man-guitar-cartoon', 'man-guitar-Matisse'], 'man-guitar-result')" class="caption caption-active" id="man-guitar-bear">"a bear is playing a guitar"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-guitar-monkey', ['man-guitar-bear', 'man-guitar-cartoon', 'man-guitar-Matisse'], 'man-guitar-result')" class="caption" id="man-guitar-monkey">"a monkey is playing a guitar"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-guitar-cartoon', ['man-guitar-bear', 'man-guitar-monkey', 'man-guitar-Matisse'], 'man-guitar-result')" class="caption" id="man-guitar-cartoon">"a man is playing a guitar, cartoon style"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-guitar-Matisse', ['man-guitar-bear', 'man-guitar-monkey', 'man-guitar-cartoon'], 'man-guitar-result')" class="caption" id="man-guitar-Matisse">"a man is playing a guitar, Matisse style"</div>
+                                </div>
+                            </div>
+
+                            <!-- woman swing -->
+                            <div class="carousel-item">
+                                <div>
+                                    <img class="teaser-img" src="./sm/assets/our_results/a woman is on the swing/data.gif" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="woman-swing-result" class="teaser-img" src="./sm/assets/our_results/a woman is on the swing/a man is on the swing.gif" />
+                                </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('woman-swing-man', ['woman-swing-ironman', 'woman-swing-vangogh', 'woman-swing-watercolor'], 'woman-swing-result')" class="caption caption-active" id="woman-swing-man">"a man is on the swing"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('woman-swing-ironman', ['woman-swing-man', 'woman-swing-vangogh', 'woman-swing-watercolor'], 'woman-swing-result')" class="caption" id="woman-swing-ironman">"a Iron Man is on the swing"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('woman-swing-vangogh', ['woman-swing-man', 'woman-swing-ironman', 'woman-swing-watercolor'], 'woman-swing-result')" class="caption" id="woman-swing-vangogh">"a woman is on the swing, Van Gogh style"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('woman-swing-watercolor', ['woman-swing-man', 'woman-swing-ironman', 'woman-swing-vangogh'], 'woman-swing-result')" class="caption" id="woman-swing-watercolor">"a watercolor painting that a woman is on the swing"</div>
+                                </div>
+                            </div>
+
+                            <!-- man basketball -->
+                            <div class="carousel-item">
+                                <div>
+                                    <img class="teaser-img" src="./sm/assets/our_results/a man is dribbling a basketball/data.gif" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="man-basketball-result" class="teaser-img" src="./sm/assets/our_results/a man is dribbling a basketball/a Lionel Messi is dribbling a basketball.gif" />
+                                </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('man-basketball-messi', ['man-basketball-racoon', 'man-basketball-oil', 'man-basketball-renoir'], 'man-basketball-result')" class="caption caption-active" id="man-basketball-messi">"a Lionel Messi is dribbling a baksetball"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-basketball-racoon', ['man-basketball-messi', 'man-basketball-oil', 'man-basketball-renoir'], 'man-basketball-result')" class="caption" id="man-basketball-racoon">"a racoon is dribbling a baksetball"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-basketball-oil', ['man-basketball-messi', 'man-basketball-racoon', 'man-basketball-renoir'], 'man-basketball-result')" class="caption" id="man-basketball-oil">"a oil painting that a man is dribbling a baksetball"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-basketball-renoir', ['man-basketball-messi', 'man-basketball-racoon', 'man-basketball-oil'], 'man-basketball-result')" class="caption" id="man-basketball-renoir">"a man is dribbling a baksetball, Renoir style"</div>
+                                </div>
+                            </div>
+
+                            <!-- man running -->
+                            <div class="carousel-item">
+                                <div>
+                                    <img class="teaser-img" src="./sm/assets/our_results/a man is running/data.gif" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="man-running-result" class="teaser-img" src="./sm/assets/our_results/a man is running/a zombie is running.gif" />
+                                </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('man-running-zombie', ['man-running-werewolf', 'man-running-pixar', 'man-running-sketch'], 'man-running-result')" class="caption caption-active" id="man-running-zombie">"a zombie is running"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-running-werewolf', ['man-running-zombie', 'man-running-pixar', 'man-running-sketch'], 'man-running-result')" class="caption" id="man-running-werewolf">"a werewolf is running"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-running-pixar', ['man-running-zombie', 'man-running-werewolf', 'man-running-sketch'], 'man-running-result')" class="caption" id="man-running-pixar">"a man is running, pixar style"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('man-running-sketch', ['man-running-zombie', 'man-running-werewolf', 'man-running-pixar'], 'man-running-result')" class="caption" id="man-running-sketch">"a pencil sketch that a man is running"</div>
+                                </div>
+                            </div>
+
+                            <!-- cow walking -->
+                            <div class="carousel-item">
+                                <div>
+                                    <img class="teaser-img" src="./sm/assets/our_results/a cow is walking/data.gif" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="cow-walking-result" class="teaser-img" src="./sm/assets/our_results/a cow is walking/a bull is walking.gif" />
+                                </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('cow-walking-bull', ['cow-walking-zebra', 'cow-walking-snow', 'cow-walking-desert'], 'cow-walking-result')" class="caption caption-active" id="cow-walking-bull">"a bull is walking"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('cow-walking-zebra', ['cow-walking-bull', 'cow-walking-snow', 'cow-walking-desert'], 'cow-walking-result')" class="caption" id="cow-walking-zebra">"a zebra is walking"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('cow-walking-snow', ['cow-walking-bull', 'cow-walking-zebra', 'cow-walking-desert'], 'cow-walking-result')" class="caption" id="cow-walking-snow">"a cow is walking on the snow"</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('cow-walking-desert', ['cow-walking-bull', 'cow-walking-zebra', 'cow-walking-snow'], 'cow-walking-result')" class="caption" id="cow-walking-desert">"a cow is walking on the desert"</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                            <div class="slider-navigation-previous">
+                                <svg viewBox="0 0 50 80" xml:space="preserve">
+                                    <polyline fill="white" stroke-width=".5em" stroke-linecap="round"
+                                        stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 ">
+                                    </polyline>
+                                </svg>
+                            </div>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                            <div class="slider-navigation-next">
+                                <svg viewBox="0 0 50 80" xml:space="preserve">
+                                    <polyline fill="white" stroke-width=".5em" stroke-linecap="round"
+                                        stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 ">
+                                    </polyline>
+                                </svg>
+                            </div>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </tr>
+                <tr> <br /> </tr>
+            </br>
+        </br>
+        </br>
+        </br>
+                <tr>
+                    <td style="text-align: left; width: 17%"><i>*Equal contribution.</i></td>
+                </tr>
+                <tr align="center"></tr>
+            </tbody>
+        </table>
+
+        &nbsp;
+
+        <p><span class="section"><b>Abstract</b></span> </p>
+        <p> Despite the fact that text-to-video (TTV) model has recently achieved remarkable success, there have been few approaches on TTV for its extension to video editing. 
+            Motivated by approaches on TTV models adapting from diffusion-based text-to-image (TTI) models, we suggest the video editing framework given only a pretrained TTI model 
+            and a single &lt;text, video&gt; pair, which we term Edit-A-Video. The framework consists of two stages: (1) inflating the 2D model into the 3D model by appending temporal 
+            modules and tuning on the source video (2) inverting the source video into the noise and editing with target text prompt and attention map injection. Each stage enables 
+            the temporal modeling and preservation of semantic attributes of the source video. One of the key challenges for video editing include a background inconsistency problem, 
+            where the regions not included for the edit suffer from undesirable and inconsistent temporal alterations. To mitigate this issue, we also introduce a novel mask blending 
+            method, termed as sparse-causal blending (SC Blending). We improve previous mask blending methods to reflect the temporal consistency so that the area where the editing 
+            is applied exhibits smooth transition while also achieving spatio-temporal consistency of the unedited regions. We present extensive experimental results over various 
+            types of text and videos, and demonstrate the superiority of the proposed method compared to baselines in terms of background consistency, text alignment, and video editing 
+            quality.
+
+        </br>
+        </br>
+        </br>
+
+        <!-- Animation. -->
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+            <p><span class="section"><b>Baseline Comparisons</b></span></p>    
+            <!-- <div class="content has-text-justified">
+            </div> -->
+            "a Bat Man is boxing"
+            <div class="columns is-vcentered">
+                <div class="column has-text-centered">
+                <img src="./sm/assets/our_results/a man is boxing/data.gif"
+                    class="comp-boxing-data"
+                    width=200/>
+                <p>Src Video</p>
+                </div>
+                <div class="column has-text-centered">
+                <img src="./sm/assets/framewise/a man is boxing/a Bat Man is boxing.gif"
+                    class="comp-boxing-framewise"
+                    width=200/>
+                <p>Framewise Editing</p>
+                </div>      
+                <div class="column has-text-centered"> 
+                <img src="./sm/assets/tuneavideo/a man is boxing/a Bat Man is boxing.gif"
+                    class="comp-boxing-tuneavideo"
+                    width=200/>
+                <p>Tune-A-Video</p>
+                </div>
+                <div class="column has-text-centered"> 
+                    <img src="./sm/assets/sdedit/a man is boxing/a Bat Man is boxing.gif"
+                        class="comp-boxing-sdedit"
+                        width=200/>
+                    <p>SDEdit</p>
+                </div>
+                <div class="column has-text-centered"> 
+                    <img src="./sm/assets/our_results/a man is boxing/a Bat Man is boxing.gif"
+                        class="comp-boxing-ours"
+                        width=200/>
+                    <p>Edit-A-Video</p>
+                </div>
+            </div>
+            <br/>
+            <!--/ Interpolating. -->
+
+            "a gorilla is riding a motorcycle" 
+            <div class="columns is-vcentered">
+                <div class="column has-text-centered">
+                <img src="./sm/assets/our_results/a man is riding a motorcycle//data.gif"
+                    class="comp-motorcycle-data"
+                    width=200/>
+                <p>Src Video</p>
+                </div>
+                <div class="column has-text-centered">
+                <img src="./sm/assets/framewise/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
+                    class="comp-motorcycle-framewise"
+                    width=200/>
+                <p>Framewise Editing</p>
+                </div>      
+                <div class="column has-text-centered"> 
+                <img src="./sm/assets/tuneavideo/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
+                    class="comp-motorcycle-tuneavideo"
+                    width=200/>
+                <p>Tune-A-Video</p>
+                </div>
+                <div class="column has-text-centered"> 
+                    <img src="./sm/assets/sdedit/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
+                        class="comp-motorcycle-sdedit"
+                        width=200/>
+                    <p>SDEdit</p>
+                </div>
+                <div class="column has-text-centered"> 
+                    <img src="./sm/assets/our_results/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
+                        class="comp-motorcycle-ours"
+                        width=200/>
+                    <p>Edit-A-Video</p>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        <!--/ Animation. -->
+      
+<!-- 
+        <p><span class="section"><b>Baseline Comparisons</b></span></p>
+        <div class="column is-3 has-text-centered">
+            <img src="./sm/assets/our_results/a cow is walking/a bull is walking.gif"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Start Frame</p>
+        </div>
+        <div class="column is-3 has-text-centered">
+            <img src="./sm/assets/our_results/a cow is walking/a bull is walking.gif"                 
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Start Frame</p>
+        </div> -->
+        <!-- <p class="section">&nbsp;</p>
+        <p class="section"><b>Additional Results</b></p>
+        <div style="text-align: center">
+            <img src="./sm/assets/results.jpg" alt="" width="850" style="margin: auto" />
+        </div>
+
+        <p class="section">&nbsp;</p> -->
+
+        <!-- <p class="section" id="paper"><b>Paper</b></p>
+        <table width="940" border="0">
+            <tbody>
+                <tr>
+                    <td height="100"><a href="https://arxiv.org/abs/2211.12572" target="_blank" rel="noopener noreferrer"><img
+                                src="./sm/assets/paper_cover.jpeg" alt="" width="140" height="167"></a></td>
+                    <td width="750">
+                        <p><b>Plug-and-Play Diffusion Features for Text-Driven Image-to-Image Translation</b><br>
+                            Narek Tumanyan <sup>*</sup>, Michal Geyer <sup>*</sup>, Shai Bagon, Tali Dekel.<br />
+                            (* indicates equal contribution) <br>
+                            [<a href="https://arxiv.org/abs/2211.12572" target="_blank"
+                                rel="noopener noreferrer">paper</a>]</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="section">&nbsp;</p> -->
+        
+        <!-- <p class="section" id="sm"><b>Supplementary Material</b></p>
+        <table width="587" height="136" border="0">
+            <tbody>
+                <tr>
+                    <td width="180"><img src="./sm/assets/sm.png" alt="" height="150"></td>
+                    <td align="left">
+                        <p>[<a href="./sm/index.html" target="_blank">supplementary page</a>]</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="section">&nbsp;</p> -->
+
+        <!-- <p class="section" id="bibtex"><b>Bibtex</b></p>
+        <table border="0">
+            <tbody>
+                <pre style=" display: block;
+  background: #eee;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  min-width: 100px;
+  border-radius: 20px;
+  ">
+
+    @article{pnpDiffusion2022,
+        author  = {Narek Tumanyan and Michal Geyer and Shai Bagon and Tali Dekel},
+        title   = {Plug-and-Play Diffusion Features for Text-Driven Image-to-Image Translation},
+        journal = {arXiv preprint arXiv:2211.12572},
+        year    = {2022},
+    }       
+			  </pre>
+
+
+            </tbody>
+        </table>
+    </div> -->
+
+    </div>
+
+    <footer class="footer">
+          <div class="columns is-centered">
+            <div class="content">
+              <p>
+                Website template credit to <a href="https://github.com/pnp-diffusion/pnp-diffusion.github.io">this</a> code.
+              </p>
+            </div>
+          </div>
+    </footer>
+
+
+</body>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WLX2Z5QLG8');
+ </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function () {
+
+        if (localStorage.getItem("my_app_name_here-quote-scroll") != null) {
+            $(window).scrollTop(localStorage.getItem("my_app_name_here-quote-scroll"));
+        }
+
+        $(window).on("scroll", function() {
+            localStorage.setItem("my_app_name_here-quote-scroll", $(window).scrollTop());
+        });
+
+      });
+ </script>
+
+ <script>
+    function prompt_on(prompt_element) {
+        prompt_element.classList.add("caption-active");
+    }
+
+    function prompt_off(prompt_element) {
+        prompt_element.classList.remove("caption-active");
+    }
+    function toggle_prompt(active_prompt_id, inactive_prompt_ids, result_id) {
+        let active_prompt = document.getElementById(active_prompt_id);
+        prompt_on(active_prompt);
+        for (let i = 0; i < inactive_prompt_ids.length; i++) {
+            let inactive_prompt = document.getElementById(inactive_prompt_ids[i]);
+            prompt_off(inactive_prompt);
+        }
+
+        let result = document.getElementById(result_id);
+        result.src = file_paths[active_prompt_id];
+
+        let teaser_images = document.getElementsByClassName("teaser-img")
+        for(let i = 0; i < teaser_images.length; i ++){
+            if(teaser_images[i].id === ""){
+                teaser_images[i].src = teaser_images[i].src;
+            }
+        }
+    }
+    // function toggle_prompt(active_prompt_id, inactive_prompt_ids, result_id) {
+    //     let active_prompt = document.getElementById(active_prompt_id);
+    //     prompt_on(active_prompt);
+    //     for (let i = 0; i < inactive_prompt_ids.length; i++) {
+    //         let inactive_prompt = document.getElementById(inactive_prompt_ids[i]);
+    //         prompt_off(inactive_prompt);
+    //     }
+
+    //     let result = document.getElementById(result_id);
+    //     result.src = file_paths[active_prompt_id];
+    // }
+ </script>
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
