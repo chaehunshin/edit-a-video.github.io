@@ -38,10 +38,38 @@
             <span>CVPR 2023</span> -->
     </div>
     <p class="author">
-        <span class="author">
-                Anonymous&nbsp;<sup>&nbsp;</sup></span>
-   </p>
-    </br>
+        <!-- <span class="author"><a target="_blank">
+                Anonymous</a>&nbsp;<sup>&nbsp;</sup></span> -->
+        <span class="author">Chaehun Shin&nbsp;<sup>*1</sup></span>
+        <span class="author">Heeseung Kim&nbsp;<sup>*1</sup></span>
+        <span class="author">Che Hyun Lee&nbsp;<sup>1</sup></span>
+        <span class="author">Sang-gil Lee&nbsp;<sup>1</sup></span>
+        <span class="author">Sungroh Yoon&nbsp;<sup><span>&#8224;</span>1,2</sup></span>
+    </p>
+    <table border="0" align="center" class="affiliations" width="1200px">
+        <tbody align="center">
+            <tr>
+                <td>&nbsp;<sup>&nbsp;</sup>&nbsp;
+                        <sup>1</sup>Data Science and AI Lab, ECE, Seoul National University</td>
+            </tr>
+            <tr>
+                <td>&nbsp;<sup>&nbsp;</sup>&nbsp;
+                    <sup>2</sup>Interdisciplinary Program in AI, Seoul National University</td> 
+                </tr>
+            </tbody>
+        <tr>
+            <td style="text-align: center; width: 17%"><i>* Equal contribution. <span>&#8224;</span> Corresponding Author</i></td>
+        </tr>
+        <tr align="center"></tr>
+        </table>
+    
+        <table width="999" border="0" align="center" class="menu" style="margin-bottom: 8px;">
+            <tbody>
+                <tr>
+                    <td align="center">| <a href="http://arxiv.org/abs/2303.07945">Paper</a>  | </td>
+                </tr>
+            </tbody>
+        </table>
 
     <div class="container">
         <table width="1000" border="0" align="center">
@@ -180,23 +208,14 @@
         &nbsp;
 
         <p><span class="section"><b>Abstract</b></span> </p>
-        <p> With advancements in text-to-image (TTI) models, text-to-video (TTV) models have recently
-            been introduced. Motivated by approaches on TTV models adapting from diffusionbased
-            TTI models, we suggest the text-guided video editing framework given only a pretrained
-            TTI model and a single &lt;text, video&gt; pair, which we term Edit-A-Video. The
-            framework consists of two stages: (1) inflating the 2D model into the 3D model by appending
-            temporal modules and tuning on the source video (2) inverting the source video
-            into the noise and editing with target text through attention map injection. Each stage
-            enables the temporal modeling and preservation of semantic attributes of the source video.
-            One of the key challenges for video editing is a background inconsistency problem, where
-            the regions unrelated to the edit suffer from undesirable and inconsistent temporal alterations.
-            To mitigate this issue, we also introduce a novel mask blending method, termed as
-            temporal-consistent blending (TC Blending). We improve previous mask blending methods
-            to reflect the temporal consistency, ensuring that the area where the editing is applied exhibits
-            smooth transition while also achieving spatio-temporal consistency of the unedited
-            regions. We present extensive experimental results over various types of text and videos,
-            and demonstrate the superiority of the proposed method compared to baselines in terms of
-            background consistency, text alignment, and video editing quality.
+        <p> With advancements in text-to-image (TTI) models, text-to-video (TTV) models have recently been introduced.
+            Motivated by approaches on TTV models adapting from diffusion-based TTI models, we suggest the text-guided video editing framework given only a pretrained TTI model and a single &lt;text, video&gt; pair, which we term Edit-A-Video.
+            The framework consists of two stages: (1) inflating the 2D model into the 3D model by appending temporal modules and tuning on the source video (2) inverting the source video into the noise and editing with target text through attention map injection.
+            Each stage enables the temporal modeling and preservation of semantic attributes of the source video.
+            One of the key challenges for video editing is a background inconsistency problem, where the regions unrelated to the edit suffer from undesirable and inconsistent temporal alterations.
+            To mitigate this issue, we also introduce a novel mask blending method, termed as temporal-consistent blending (TC Blending). 
+            We improve previous mask blending methods to reflect the temporal consistency, ensuring that the area where the editing is applied exhibits smooth transition while also achieving spatio-temporal consistency of the unedited regions.
+            We present extensive experimental results over various types of text and videos, and demonstrate the superiority of the proposed method compared to baselines in terms of background consistency, text alignment, and video editing quality.
         </br>
         </br>
         </br>
