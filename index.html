@@ -14,7 +14,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Edit-A-Video Single Video Editing with Object-Aware Consistency</title>
+    <title>Edit-A-Video<span>&#58;</span> Single Video Editing with Object-Aware Consistency</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <meta name="description"
         content="Project page for &#39;Edit-A-Video Single Video Editing with Object-Aware Consistency.&#39;">
@@ -25,7 +25,7 @@
 
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Edit-A-Video Single Video Editing with Object-Aware Consistency</title>
+    <title>Edit-A-Video<span>&#58;</span> Single Video Editing with Object-Aware Consistency</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <meta name="description"
         content="Project page for &#39;Edit-A-Video Single Video Editing with Object-Aware Consistency.&#39;">
@@ -33,35 +33,16 @@
 </head>
 
 <body>
-    <p class="title">Edit-A-Video Single Video Editing with Object-Aware Consistency</p>
+    <p class="title">Edit-A-Video<span>&#58;</span> Single Video Editing with Object-Aware Consistency</p>
     <!-- <div style="text-align: center; font-size: 20pt; margin-bottom: 15px">
             <span>CVPR 2023</span> -->
     </div>
     <p class="author">
-        <!-- <span class="author"><a target="_blank">
-                Anonymous</a>&nbsp;<sup>&nbsp;</sup></span> -->
-        <span class="author">Chaehun Shin&nbsp;<sup>*</sup></span>
-        <span class="author">Heeseung Kim&nbsp;<sup>*</sup></span>
-        <span class="author">Che Hyun Lee&nbsp;<sup>&nbsp;</sup></span>
-        <span class="author">Sang-gil Lee&nbsp;<sup>&nbsp;</sup></span>
-        <span class="author">Sungroh Yoon&nbsp;<sup>&nbsp;</sup></span>
-    </p>
-    <table border="0" align="center" class="affiliations" width="1200px">
-        <tbody align="center">
-            <tr>
-                <td>&nbsp;<sup>&nbsp;</sup>&nbsp;
-                        Data Science and AI Lab, ECE, Seoul National University</td>
-            </tr>
-        </tbody>
-    </table>
+        <span class="author">
+                Anonymous&nbsp;<sup>&nbsp;</sup></span>
+   </p>
+    </br>
 
-    <!-- <table width="999" border="0" align="center" class="menu" style="margin-bottom: 8px;">
-        <tbody>
-            <tr>
-                <td align="center">| <a href="#paper">Paper</a> | <a href="./sm/index.html" target="_blank">Supplementary Material</a> | <a href="https://github.com/MichalGeyer/plug-and-play">Code</a> | <a href="https://huggingface.co/spaces/hysts/PnP-diffusion-features"> HuggingFace Demo </a> | <a href="https://replicate.com/daanelson/plug_and_play_image_translation"> Replicate Demo </a> | </td>
-            </tr>
-        </tbody>
-    </table> -->
     <div class="container">
         <table width="1000" border="0" align="center">
             <tbody>
@@ -192,27 +173,30 @@
         </br>
         </br>
         </br>
-                <tr>
-                    <td style="text-align: left; width: 17%"><i>*Equal contribution.</i></td>
-                </tr>
-                <tr align="center"></tr>
+
             </tbody>
         </table>
 
         &nbsp;
 
         <p><span class="section"><b>Abstract</b></span> </p>
-        <p> Despite the fact that text-to-video (TTV) model has recently achieved remarkable success, there have been few approaches on TTV for its extension to video editing. 
-            Motivated by approaches on TTV models adapting from diffusion-based text-to-image (TTI) models, we suggest the video editing framework given only a pretrained TTI model 
-            and a single &lt;text, video&gt; pair, which we term Edit-A-Video. The framework consists of two stages: (1) inflating the 2D model into the 3D model by appending temporal 
-            modules and tuning on the source video (2) inverting the source video into the noise and editing with target text prompt and attention map injection. Each stage enables 
-            the temporal modeling and preservation of semantic attributes of the source video. One of the key challenges for video editing include a background inconsistency problem, 
-            where the regions not included for the edit suffer from undesirable and inconsistent temporal alterations. To mitigate this issue, we also introduce a novel mask blending 
-            method, termed as sparse-causal blending (SC Blending). We improve previous mask blending methods to reflect the temporal consistency so that the area where the editing 
-            is applied exhibits smooth transition while also achieving spatio-temporal consistency of the unedited regions. We present extensive experimental results over various 
-            types of text and videos, and demonstrate the superiority of the proposed method compared to baselines in terms of background consistency, text alignment, and video editing 
-            quality.
-
+        <p> With advancements in text-to-image (TTI) models, text-to-video (TTV) models have recently
+            been introduced. Motivated by approaches on TTV models adapting from diffusionbased
+            TTI models, we suggest the text-guided video editing framework given only a pretrained
+            TTI model and a single &lt;text, video&gt; pair, which we term Edit-A-Video. The
+            framework consists of two stages: (1) inflating the 2D model into the 3D model by appending
+            temporal modules and tuning on the source video (2) inverting the source video
+            into the noise and editing with target text through attention map injection. Each stage
+            enables the temporal modeling and preservation of semantic attributes of the source video.
+            One of the key challenges for video editing is a background inconsistency problem, where
+            the regions unrelated to the edit suffer from undesirable and inconsistent temporal alterations.
+            To mitigate this issue, we also introduce a novel mask blending method, termed as
+            temporal-consistent blending (TC Blending). We improve previous mask blending methods
+            to reflect the temporal consistency, ensuring that the area where the editing is applied exhibits
+            smooth transition while also achieving spatio-temporal consistency of the unedited
+            regions. We present extensive experimental results over various types of text and videos,
+            and demonstrate the superiority of the proposed method compared to baselines in terms of
+            background consistency, text alignment, and video editing quality.
         </br>
         </br>
         </br>
@@ -223,157 +207,79 @@
             <p><span class="section"><b>Baseline Comparisons</b></span></p>    
             <!-- <div class="content has-text-justified">
             </div> -->
-            "a Bat Man is boxing"
+            <b>"a Bat Man is boxing"</b>
             <div class="columns is-vcentered">
                 <div class="column has-text-centered">
                 <img src="./sm/assets/our_results/a man is boxing/data.gif"
                     class="comp-boxing-data"
                     width=200/>
-                <p>Src Video</p>
-                </div>
-                <div class="column has-text-centered">
-                <img src="./sm/assets/framewise/a man is boxing/a Bat Man is boxing.gif"
-                    class="comp-boxing-framewise"
-                    width=200/>
-                <p>Framewise Editing</p>
-                </div>      
-                <div class="column has-text-centered"> 
-                <img src="./sm/assets/tuneavideo/a man is boxing/a Bat Man is boxing.gif"
-                    class="comp-boxing-tuneavideo"
-                    width=200/>
-                <p>Tune-A-Video</p>
-                </div>
-                <div class="column has-text-centered"> 
-                    <img src="./sm/assets/sdedit/a man is boxing/a Bat Man is boxing.gif"
-                        class="comp-boxing-sdedit"
-                        width=200/>
-                    <p>SDEdit</p>
+                <p><b>Source Video</b></p>
                 </div>
                 <div class="column has-text-centered"> 
                     <img src="./sm/assets/our_results/a man is boxing/a Bat Man is boxing.gif"
                         class="comp-boxing-ours"
                         width=200/>
-                    <p>Edit-A-Video</p>
+                    <p style="color:red"><b>Ours (Edit-A-Video)</b></p>
                 </div>
+                <div class="column has-text-centered"> 
+                <img src="./sm/assets/tuneavideo/a man is boxing/a Bat Man is boxing.gif"
+                    class="comp-boxing-tuneavideo"
+                    width=200/>
+                <p><b>Tune-A-Video</b></p>
+                </div>
+                <div class="column has-text-centered"> 
+                    <img src="./sm/assets/sdedit/a man is boxing/a Bat Man is boxing.gif"
+                        class="comp-boxing-sdedit"
+                        width=200/>
+                    <p><b>SDEdit</b></p>
+                </div>
+                <div class="column has-text-centered">
+                <img src="./sm/assets/videoptp/a man is boxing/a Bat Man is boxing.gif"
+                    class="comp-boxing-videoptp"
+                    width=200/>
+                <p><b>Video-P2P</b></p>
+                </div>   
             </div>
             <br/>
             <!--/ Interpolating. -->
 
-            "a gorilla is riding a motorcycle" 
+            <b>"a gorilla is riding a motorcycle"</b>
             <div class="columns is-vcentered">
                 <div class="column has-text-centered">
                 <img src="./sm/assets/our_results/a man is riding a motorcycle//data.gif"
                     class="comp-motorcycle-data"
                     width=200/>
-                <p>Src Video</p>
-                </div>
-                <div class="column has-text-centered">
-                <img src="./sm/assets/framewise/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
-                    class="comp-motorcycle-framewise"
-                    width=200/>
-                <p>Framewise Editing</p>
-                </div>      
-                <div class="column has-text-centered"> 
-                <img src="./sm/assets/tuneavideo/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
-                    class="comp-motorcycle-tuneavideo"
-                    width=200/>
-                <p>Tune-A-Video</p>
-                </div>
-                <div class="column has-text-centered"> 
-                    <img src="./sm/assets/sdedit/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
-                        class="comp-motorcycle-sdedit"
-                        width=200/>
-                    <p>SDEdit</p>
+                <p><b>Source Video</b></p>
                 </div>
                 <div class="column has-text-centered"> 
                     <img src="./sm/assets/our_results/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
                         class="comp-motorcycle-ours"
                         width=200/>
-                    <p>Edit-A-Video</p>
+                    <p style="color:red"><b>Ours (Edit-A-Video)</b></p>
                 </div>
+                <div class="column has-text-centered"> 
+                <img src="./sm/assets/tuneavideo/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
+                    class="comp-motorcycle-tuneavideo"
+                    width=200/>
+                <p><b>Tune-A-Video</b></p>
+                </div>
+                <div class="column has-text-centered"> 
+                    <img src="./sm/assets/sdedit/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
+                        class="comp-motorcycle-sdedit"
+                        width=200/>
+                    <p><b>SDEdit</b></p>
+                </div>
+                <div class="column has-text-centered">
+                <img src="./sm/assets/videoptp/a man is riding a motorcycle/a gorilla is riding a motorcycle.gif"
+                    class="comp-motorcycle-videoptp"
+                    width=200/>
+                <p><b>Video-P2P</b></p>
+                </div>      
             </div>
-
             </div>
         </div>
         <!--/ Animation. -->
       
-<!-- 
-        <p><span class="section"><b>Baseline Comparisons</b></span></p>
-        <div class="column is-3 has-text-centered">
-            <img src="./sm/assets/our_results/a cow is walking/a bull is walking.gif"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-        </div>
-        <div class="column is-3 has-text-centered">
-            <img src="./sm/assets/our_results/a cow is walking/a bull is walking.gif"                 
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-        </div> -->
-        <!-- <p class="section">&nbsp;</p>
-        <p class="section"><b>Additional Results</b></p>
-        <div style="text-align: center">
-            <img src="./sm/assets/results.jpg" alt="" width="850" style="margin: auto" />
-        </div>
-
-        <p class="section">&nbsp;</p> -->
-
-        <!-- <p class="section" id="paper"><b>Paper</b></p>
-        <table width="940" border="0">
-            <tbody>
-                <tr>
-                    <td height="100"><a href="https://arxiv.org/abs/2211.12572" target="_blank" rel="noopener noreferrer"><img
-                                src="./sm/assets/paper_cover.jpeg" alt="" width="140" height="167"></a></td>
-                    <td width="750">
-                        <p><b>Plug-and-Play Diffusion Features for Text-Driven Image-to-Image Translation</b><br>
-                            Narek Tumanyan <sup>*</sup>, Michal Geyer <sup>*</sup>, Shai Bagon, Tali Dekel.<br />
-                            (* indicates equal contribution) <br>
-                            [<a href="https://arxiv.org/abs/2211.12572" target="_blank"
-                                rel="noopener noreferrer">paper</a>]</p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p class="section">&nbsp;</p> -->
-        
-        <!-- <p class="section" id="sm"><b>Supplementary Material</b></p>
-        <table width="587" height="136" border="0">
-            <tbody>
-                <tr>
-                    <td width="180"><img src="./sm/assets/sm.png" alt="" height="150"></td>
-                    <td align="left">
-                        <p>[<a href="./sm/index.html" target="_blank">supplementary page</a>]</p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p class="section">&nbsp;</p> -->
-
-        <!-- <p class="section" id="bibtex"><b>Bibtex</b></p>
-        <table border="0">
-            <tbody>
-                <pre style=" display: block;
-  background: #eee;
-  white-space: pre;
-  -webkit-overflow-scrolling: touch;
-  max-width: 100%;
-  min-width: 100px;
-  border-radius: 20px;
-  ">
-
-    @article{pnpDiffusion2022,
-        author  = {Narek Tumanyan and Michal Geyer and Shai Bagon and Tali Dekel},
-        title   = {Plug-and-Play Diffusion Features for Text-Driven Image-to-Image Translation},
-        journal = {arXiv preprint arXiv:2211.12572},
-        year    = {2022},
-    }       
-			  </pre>
-
-
-            </tbody>
-        </table>
-    </div> -->
 
     </div>
 
